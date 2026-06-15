@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsNova | All India Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="toggleMenu()">×</button>
+        <div class="sidebar-header">CHOOSE YOUR DESTINATION</div>
+        <ul class="sidebar-links">
+            <li onclick="toggleMenu()">🏠 Home</li>
+            <li onclick="toggleMenu()">🇮🇳 India</li>
+            <li onclick="toggleMenu()">🌍 World</li>
+            <li onclick="toggleMenu()">🏏 Cricket</li>
+            <li onclick="toggleMenu()">🚀 Technology</li>
+            <li onclick="toggleMenu()">🎥 Movies</li>
+            <li onclick="toggleMenu()" class="help-item">❓ Help & Support</li>
+        </ul>
+    </div>
+
+    <header>
+        <nav class="navbar">
+            <div class="left-section">
+                <button class="menu-trigger" onclick="toggleMenu()">☰ Menu</button>
+                <div class="logo">NEWS<span>NOVA</span></div>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search news here...">
+                <button>🔍</button>
+            </div>
+            <div class="nav-right">
+                <select class="lang-dropdown">
+                    <option value="">🌐 Select Language</option>
+                    <option value="hi">Hindi (हिन्दी)</option>
+                    <option value="mr">Marathi (मराठी)</option>
+                    <option value="gu">Gujarati (ગુજરાતી)</option>
+                    <option value="bn">Bengali (বাংলা)</option>
+                    <option value="pa">Punjabi (ਪੰਜਾਬੀ)</option>
+                    <option value="ta">Tamil (தமிழ்)</option>
+                    <option value="te">Telugu (తెలుగు)</option>
+                    <option value="kn">Kannada (ಕನ್ನಡ)</option>
+                    <option value="ml">Malayalam (മലയാളം)</option>
+                    <option value="en">English</option>
+                </select>
+                <div class="live-tag"><span class="pulse-dot"></span> LIVE</div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-text">
+            <h1>Stay Ahead with <span>NewsNova</span></h1>
+            <p>Real-time news in every major Indian language. Breaking barriers daily.</p>
+        </section>
+
+        <div class="news-grid">
+            <div class="news-card">
+                <img src="https://img.etimg.com/thumb/msid-129716003,width-362,height-240,imgsize-81116,resizemode-4/news/elections/assembly-elections/kerala/rajeev-chandrasekhar-files-nomination-from-nemom-ahead-of-kerala-polls-rajasthan-cm-bhajanlal-sharma-joins.jpg" alt="Politics">
+                <div class="card-content">
+                    <span class="card-tag pol">Politics</span>
+                    <h3>Election Results 2026</h3>
+                    <p>Latest trends show a major shift in national votes across the country.</p>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800" alt="Tech">
+                <div class="card-content">
+                    <span class="card-tag tech">Tech</span>
+                    <h3>AI Revolution 2026</h3>
+                    <p>Discover how new AI models are changing the workplace forever.</p>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="https://img.republicworld.com/all_images/2026/03/bcci-oneday-wc-2027-team-1774024497209-1280x720.webp?w=279&h=157&q=75&format=webp" alt="Cricket">
+                <div class="card-content">
+                    <span class="card-tag sports">Cricket</span>
+                    <h3>IPL 2026 Updates</h3>
+                    <p>Catch the latest scores and match highlights from today's game.</p>
+                </div>
+            </div>
+            <div class="news-card">
+               <img src="https://img.republicworld.com/all_images/2026/03/iranian-president-masoud-lists-3-crucial-conditions-to-end-war-with-us-and-israel-1773294578352-1280x720.webp?w=279&h=157&q=75&format=webp" alt="Iran President News">
+    
+              <div class="card-content">
+        <h3>Iran President Conditions</h3>
+        <p>Iranian President lists conditions to end war with US and Israel.</p>
+           </div>
+       </div>
+       <div class="news-card">
+    <img src="https://images.indianexpress.com/2026/03/LPG-Express-Photo-By-Pavan-Khengre.jpg?w=1600" alt="LPG News India">
+    
+    <div class="card-content">
+        <h3>LPG News Update</h3>
+        <p>Latest updates on LPG supply and price changes in India.</p>
+    </div>
+</div>
+        </div>
+    </main>
+
+    <div id="chatWindow" class="chat-container">
+        <div class="chat-header">
+            <span>✨ NewsNova AI Assistant</span>
+            <button onclick="closeChat()">×</button>
+        </div>
+        <div id="chatBody" class="chat-body">
+            <div class="ai-msg">Hello! Main aapki har Indian language mein madad kar sakta hoon. Kaise ho? (How are you?)</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="userInput" placeholder="Hindi/English/Gujarati mein likhein..." onkeypress="handleKey(event)">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <button class="ai-float-btn" onclick="openChat()">✨ Ask AI</button>
+
+    <script>
+        function toggleMenu() { document.getElementById("sidebar").classList.toggle("open"); }
+        function openChat() { document.getElementById("chatWindow").classList.add("active"); }
+        function closeChat() { document.getElementById("chatWindow").classList.remove("active"); }
+        function handleKey(e) { if(e.key === 'Enter') sendMessage(); }
+
+        function sendMessage() {
+            let inputField = document.getElementById("userInput");
+            let msg = inputField.value.trim().toLowerCase();
+            let chatBody = document.getElementById("chatBody");
+            if(msg === "") return;
+
+            chatBody.innerHTML += `<div class="user-msg">${msg}</div>`;
+            inputField.value = "";
+
+            let reply = "";
+            // Smart Language Detection
+            if (msg.includes("hello") || msg.includes("hi")) {
+                reply = "Hello! Welcome to NewsNova. How can I assist you today?";
+            } else if (msg.includes("kaise ho") || msg.includes("namaste")) {
+                reply = "Namaste! Main bilkul theek hoon. Aap aaj kaunsi news sunna chahte hain?";
+            } else if (msg.includes("kem cho") || msg.includes("maja ma")) {
+                reply = "Kem cho! Maari pase tamara maate badhi news che. (Main aapki madad kar sakta hoon).";
+            } else if (msg.includes("cricket")) {
+                reply = "Cricket news? Aaj IPL 2026 ka bahut bada match hai!";
+            } else {
+                reply = "That's interesting! Main iske baare mein aur dhoondh raha hoon. Wait a second...";
+            }
+
+            setTimeout(() => {
+                chatBody.innerHTML += `<div class="ai-msg">${reply}</div>`;
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 600);
+        }
+    </script>
+</body>
+</html>
